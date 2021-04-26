@@ -130,16 +130,16 @@ def polygon4(n):
         bob1.forward(radius(n))
         bob1.left(180)
 
+
 def spin_ball(n):
     d = 0
     ball.setpos(-108.70,118.41)
     ball.right(4)
     ball.left(90)
-    m = random.randint(0,36)
-
+    m = random.randint(0,36)    
     for i in range(m):
         ball.left(360/37)
-        ball.forward(n)
+        ball.forward(n)      
     coordX = ball.xcor()
     coordY = ball.ycor()
     pos = (round(coordX, 2),round(coordY, 2))
@@ -147,17 +147,19 @@ def spin_ball(n):
         ball.forward(n/3)
     elif 12 <= m <= 14:
         ball.forward(n*(2/3))
-    elif 14 < m < 24:
-        ball.forward(n)
-    elif 24 <= m < 29:
-        ball.forward(n/2)
-    while d != 2:
-        for i in range(37):
+    elif 14 < m < 22:
+        ball.forward(n)        
+    elif 22 <= m < 30:
+        ball.forward(n/2)    
+    elif 30 <= m < 32:
+        ball.forward(n/3)    
+    while d != 2:        
+        for i in range(37):                    
             ball.left(360/37)
             ball.forward(n)
         d +=1
     return win_pos[pos]
-
+  
 def sqr():
     for i in range(12):
         bob.forward(50)
@@ -545,21 +547,6 @@ def playEvent(x,y):
 game_bg()
 
 
-#def rollnum(): #returns the ro
-#    num = random.randint(0,36)
-#    return num
-
-#def rollcolor():
-#    rednums = [1,3,5,7,9,12,14,16,18,21,23,25,27,28,30,32,34,36]
-#    blacknums = [2,4,6,8,10,11,13,15,17,19,20,22,24,26,29,31,33,35]
-#    num = random.randint(0,36)
-#    if num == 0:
-#        return "green"
-#    elif num in rednums:
-#        return "red"
-#    elif num in blacknums:
-#        return "black"
-
 def ask():
     while True:
         again = input("Type 'Exit' at any time to cash out ")
@@ -571,9 +558,11 @@ def ask():
             pass
 
 print("Welcome to Roulette! You start with $100!")
+
 turn = False
 while turn == False:
-    print("Drag a chip onto the board to place a bet, then hit play to spin the wheel! (Yellow = $5, Blue = $10, Black = $25)")
+    print("To play: Drag a chip onto the board to place a bet, then hit PLAY to spin the wheel! (Yellow = $5, Blue = $10, Black = $25)")
+    print("To replay: Hit RESET, Drag a chip onto the board to place a bet, then hit PLAY to spin the wheel! (Yellow = $5, Blue = $10, Black = $25)")    
     chip1.ondrag(drag1)
     chip2.ondrag(drag2)
     chip3.ondrag(drag3)
